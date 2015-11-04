@@ -28,6 +28,19 @@ def gridSize(grid):
 
 # print gridSize(grid(4,8))
 
+def cellCheck(grid):
+    '''
+    reference grid for indexing
+        0 1 2 3 4 5 6 7
+        | | | | | | | |
+    0 - 0 0 0 0 0 0 0 0
+    1 - 0 0 0 0 0 0 0 0
+    2 - 0 0 0 0 0 0 0 0
+    3 - 0 0 0 0 0 0 0 0
+
+    
+    '''
+
 # Passing the grid() function to this function will render the grid in characters
 def gridRender(grid, dead=None, alive=None):
     cell = [dead, alive]
