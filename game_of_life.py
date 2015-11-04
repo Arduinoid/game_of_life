@@ -26,17 +26,21 @@ def gridSize(grid):
     grid_dimensions = [num_of_cols, num_of_rows]
     return grid_dimensions
 
-print gridSize(grid(4,8))
+# print gridSize(grid(4,8))
 
 # Passing the grid() function to this function will render the grid in characters
-def gridRender(grid):
-    cell = [".", "*"]
-    row = ""
-    for line in grid:
-        for item in line:
-            row += cell[item]
-        print row
+def gridRender(grid, dead=None, alive=None):
+    cell = [dead, alive]
+    if cell[0] == None or cell[1] == None:
+        for line in grid:
+            print line
+    else:
         row = ""
+        for line in grid:
+            for item in line:
+                row += cell[item]
+            print row
+            row = ""
 
 # This funciton will take a grid input and will swap the bits from 0 to 1 or 1 to 0
 # depending on the current value of each bit
@@ -54,7 +58,7 @@ def cellShift(grid):
 #<<<<< TESTING >>>>>>#
 
 # capture the grid state in a variable
-# life_grid = grid(4,8)
+life_grid = grid(4,8)
 # for i in life_grid:
 #     print i
 # throw this print here for spacing between the two outputs
@@ -64,4 +68,7 @@ def cellShift(grid):
 # for i in shifted:
 #     print i
 
-# gridRender(life_grid)
+# grid render that defaults to raw grid
+gridRender(life_grid)
+# grid render using character replacment arguments
+gridRender(life_grid, "x", "o")
