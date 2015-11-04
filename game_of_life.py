@@ -19,6 +19,15 @@ def grid(rows, columns):
 
 # print grid(4,8)
 
+# This funciton helps to know what the size of the grid is
+def gridSize(grid):
+    num_of_cols = len(grid)
+    num_of_rows = len(grid[0])
+    grid_dimensions = [num_of_cols, num_of_rows]
+    return grid_dimensions
+
+print gridSize(grid(4,8))
+
 # Passing the grid() function to this function will render the grid in characters
 def gridRender(grid):
     cell = [".", "*"]
@@ -36,12 +45,8 @@ def cellShift(grid):
     new_grid = []
     for line in grid:
         for item in line:
-            # email: erik.bernoth@gmail.com
             row.append(0 if item else 1)
-            # if item == 1:
-            #    row.append(0)
-            # else:
-            #    row.append(1)
+
         new_grid.append(row)
         row = []
     return new_grid
@@ -49,14 +54,14 @@ def cellShift(grid):
 #<<<<< TESTING >>>>>>#
 
 # capture the grid state in a variable
-life_grid = grid(4,8)
-for i in life_grid:
-    print i
+# life_grid = grid(4,8)
+# for i in life_grid:
+#     print i
 # throw this print here for spacing between the two outputs
-print
+# print
 # This is testing the cellShift funciton
-shifted = cellShift(life_grid)
-for i in shifted:
-    print i
+# shifted = cellShift(life_grid)
+# for i in shifted:
+#     print i
 
 # gridRender(life_grid)
