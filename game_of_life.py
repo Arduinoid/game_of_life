@@ -50,13 +50,13 @@ def cellShift(grid):
 
 # capture the grid state in a variable
 life_grid = grid(4,8)
-for i in shifted:
+for i in life_grid:
     print i
 # throw this print here for spacing between the two outputs
 print
 # This is testing the cellShift funciton
 shifted = cellShift(life_grid)
-for i in life_grid:
+for i in shifted:
     print i
 
 # gridRender(life_grid)
