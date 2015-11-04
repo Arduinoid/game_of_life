@@ -34,11 +34,11 @@ def cellCheck(grid):
         0 1 2 3 4 5 6 7
         | | | | | | | |
     0 - 0 0 0 0 0 0 0 0
-    1 - 0 0 0 0 0 0 0 0
+    1 - 0 X 0 0 0 0 0 0
     2 - 0 0 0 0 0 0 0 0
     3 - 0 0 0 0 0 0 0 0
 
-    
+
     '''
 
 # Passing the grid() function to this function will render the grid in characters
