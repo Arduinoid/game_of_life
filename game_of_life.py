@@ -33,9 +33,9 @@ def cellCheck(grid):
     reference grid for indexing
         0 1 2 3 4 5 6 7
         | | | | | | | |
-    0 - 0 0 0 0 0 0 0 0
-    1 - 0 X 0 0 0 0 0 0
-    2 - 0 0 0 0 0 0 0 0
+    0 - 0 0 0 0 X 0 0 0
+    1 - 0 X X X 0 0 0 0
+    2 - 0 0 0 0 X 0 0 0
     3 - 0 0 0 0 0 0 0 0
 
 
