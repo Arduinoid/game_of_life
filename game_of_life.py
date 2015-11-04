@@ -14,7 +14,7 @@ def grid(rows, columns):
         grid_array.append(row(columns))
     return grid_array
 
-# print grid(4,8)
+print grid(4,8)
 
 def gridRender(grid):
     cell = [".", "*"]
