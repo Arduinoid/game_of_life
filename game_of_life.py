@@ -28,6 +28,7 @@ def gridSize(grid):
 
 # print gridSize(grid(4,8))
 
+# <<<<<< IN PROGRESS >>>>> #
 def cellCheck(grid):
     '''
     reference grid for indexing
@@ -40,6 +41,21 @@ def cellCheck(grid):
 
 
     '''
+# Building a function to obtain the surrounding cell values
+# then output the sum of those values
+def cellSurroundSum(grid, column, row):
+    cell_value = grid[column][row]
+    ##### Take out testing print statment when done with tests
+    print "cell_value is: ", cell_value
+    shift = [-1, 0, 1]
+    cell_sum = 0
+    for i in range(3):
+        section = grid[row + shift[i]]
+        for i in range(3):
+            cell_sum += section[column + shift[i]]
+    ##### Take out testing string when done with tests
+    return "Surrounding cells sum: ", cell_sum - cell_value
+
 
 # Passing the grid() function to this function will render the grid in characters
 def gridRender(grid, dead=None, alive=None):
@@ -83,5 +99,6 @@ life_grid = grid(4,8)
 
 # grid render that defaults to raw grid
 gridRender(life_grid)
+print cellSurroundSum(life_grid, 2, 2)
 # grid render using character replacment arguments
-gridRender(life_grid, "x", "o")
+# gridRender(life_grid, "x", "o")
