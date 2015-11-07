@@ -29,17 +29,29 @@ def gridSize(grid):
 # print gridSize(grid(4,8))
 
 # <<<<<< IN PROGRESS >>>>> #
-def cellCheck(grid):
+def cellCheck(grid, position):
     '''
+    This function takes two arguments
+    grid = would be a two dimensional array
+    position = would be a list of two items [x,y]
+    It would then output a 1 or a 0 depending on the sum value surrounding
+    the cell position. This value is obtained from calling the function
+    cellSurroundSum()
+    
     reference grid for indexing
         0 1 2 3 4 5 6 7
         | | | | | | | |
     0 - 0 0 0 0 X 0 0 0
-    1 - 0 X X X 0 0 0 0
-    2 - 0 0 0 0 X 0 0 0
-    3 - 0 0 0 0 0 0 0 0
+    1 - 0 X X X 0 X 0 0
+    2 - X X 0 0 X 0 0 0
+    3 - 0 X 0 0 0 0 0 0
 
-
+    cellCheck(grid, [2,2])
+    >> 1
+    cellCheck(grid, [5,1])
+    >> 1
+    cellCheck(grid, [1,2])
+    >> 0
     '''
 # Building a function to obtain the surrounding cell values
 # then output the sum of those values
