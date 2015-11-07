@@ -37,7 +37,7 @@ def cellCheck(grid, position):
     It would then output a 1 or a 0 depending on the sum value surrounding
     the cell position. This value is obtained from calling the function
     cellSurroundSum()
-    
+
     reference grid for indexing
         0 1 2 3 4 5 6 7
         | | | | | | | |
@@ -47,12 +47,27 @@ def cellCheck(grid, position):
     3 - 0 X 0 0 0 0 0 0
 
     cellCheck(grid, [2,2])
-    >> 1
+    >> 0
     cellCheck(grid, [5,1])
     >> 1
     cellCheck(grid, [1,2])
     >> 0
+    cellCheck(grid, [3,2])
+    >> 1
     '''
+
+    column = [position[0]]
+    row = [position[1]]
+    cell = grid[row][column]
+
+    cell_surround_total = cellSurroundSum(grid, column, row)
+
+    if cell == 1:
+        # check how many neighnors to perform certain logic
+
+    else:
+        # Perform logic for dead cell 
+
 # Building a function to obtain the surrounding cell values
 # then output the sum of those values
 def cellSurroundSum(grid, column, row):
