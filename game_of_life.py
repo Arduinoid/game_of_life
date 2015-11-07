@@ -11,6 +11,9 @@ def row(width):
 # print row(8)
 
 # This funciton will call the row() funciton and create a grid from it
+###################################################################
+# >>>>>>>> WORKING ON THIS FUNCTION TO CREATE LARGER GRID <<<<<<< #
+###################################################################
 def grid(rows, columns):
     grid_array = []
     for i in range(rows):
