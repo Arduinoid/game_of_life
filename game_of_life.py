@@ -28,7 +28,6 @@ def gridSize(grid):
 
 # print gridSize(grid(4,8))
 
-# <<<<<< IN PROGRESS >>>>> #
 def cellCheck(grid, position):
     '''
     This function takes two arguments
