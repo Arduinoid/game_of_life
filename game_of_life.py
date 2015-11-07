@@ -56,21 +56,41 @@ def cellCheck(grid, position):
     >> 1
     '''
 
-    column = [position[0]]
-    row = [position[1]]
+    column = position[0]
+    row = position[1]
     cell = grid[row][column]
+    original_cell = cell
+    dead = 0
+    alive = 1
 
-    cell_surround_total = cellSurroundSum(grid, column, row)
+    cell_surround_total = cellSurroundSum(grid, position)
+    # check rules and store in variables
+    less_than_two = cell_surround_total < 2
+    equals_two = cell_surround_total == 2
+    equals_three = cell_surround_total == 3
+    greater_than_three = cell_surround_total > 3
 
-    if cell == 1:
+    if cell == alive:
         # check how many neighnors to perform certain logic
+        if less_than_two:
+            cell = dead
+        elif equals_two or equals_three:
+            cell = alive
+        elif greater_than_three:
+            cell = dead
 
     else:
-        # Perform logic for dead cell 
+        # Perform logic for dead cell
+        if equals_three:
+            cell = alive
+    # REMOVE TESTING CODE IN RETURN WHEN DONE TESTING
+    return "cell was", original_cell, "and now is",  cell
 
 # Building a function to obtain the surrounding cell values
 # then output the sum of those values
-def cellSurroundSum(grid, column, row):
+def cellSurroundSum(grid, position):
+    column = position[0]
+    row = position[1]
     cell_value = grid[column][row]
     shift = [-1, 0, 1]
     cell_sum = 0
@@ -110,20 +130,23 @@ def cellShift(grid):
     return new_grid
 
 #<<<<< TESTING >>>>>>#
+if __name__ == '__main__':
 
-# capture the grid state in a variable
-life_grid = grid(4,8)
-# for i in life_grid:
-#     print i
-# throw this print here for spacing between the two outputs
-# print
-# This is testing the cellShift funciton
-# shifted = cellShift(life_grid)
-# for i in shifted:
-#     print i
+    # capture the grid state in a variable
+    life_grid = grid(4,8)
+    position = [2,2]
+    # for i in life_grid:
+    #     print i
+    # throw this print here for spacing between the two outputs
+    # print
+    # This is testing the cellShift funciton
+    # shifted = cellShift(life_grid)
+    # for i in shifted:
+    #     print i
 
-# grid render that defaults to raw grid
-gridRender(life_grid)
-print cellSurroundSum(life_grid, 2, 2)
-# grid render using character replacment arguments
-# gridRender(life_grid, "x", "o")
+    # grid render that defaults to raw grid
+    gridRender(life_grid)
+    print cellSurroundSum(life_grid, position)
+    print cellCheck(life_grid, position)
+    # grid render using character replacment arguments
+    # gridRender(life_grid, "x", "o")
