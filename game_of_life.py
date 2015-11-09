@@ -115,6 +115,15 @@ def borderAdd(grid):
     grid_plus_border.append(zero_row)
     return grid_plus_border
 
+def borderRemove(grid):
+    '''
+    This function will take a 2D array and remove the outer border
+    made by borderAdd. SO it will go from 7x7 to 5x5
+    '''
+    grid_minus_border = grid[1:-1]
+    return grid_minus_border
+
+
 # Passing the grid() function to this function will render the grid in characters
 def gridRender(grid, dead=None, alive=None):
     cell = [dead, alive]
@@ -159,6 +168,8 @@ if __name__ == '__main__':
 
     # grid render that defaults to raw grid
     gridRender(borderAdd(life_grid))
+    print ""
+    gridRender(borderRemove(life_grid))
     # print cellSurroundSum(life_grid, position)
     # print cellCheck(life_grid, position)
     # grid render using character replacment arguments
