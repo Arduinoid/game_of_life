@@ -109,6 +109,11 @@ def borderAdd(grid):
     another 2D array with an extra border of zeros.
     So a 5x5 grid would become a 7x7 grid.
     '''
+    grid_plus_border = grid
+    zero_row = [0] * len(grid[0])
+    grid_plus_border.insert(0, zero_row)
+    grid_plus_border.append(zero_row)
+    return grid_plus_border
 
 # Passing the grid() function to this function will render the grid in characters
 def gridRender(grid, dead=None, alive=None):
@@ -153,8 +158,8 @@ if __name__ == '__main__':
     #     print i
 
     # grid render that defaults to raw grid
-    gridRender(life_grid)
-    print cellSurroundSum(life_grid, position)
-    print cellCheck(life_grid, position)
+    gridRender(borderAdd(life_grid))
+    # print cellSurroundSum(life_grid, position)
+    # print cellCheck(life_grid, position)
     # grid render using character replacment arguments
     # gridRender(life_grid, "x", "o")
