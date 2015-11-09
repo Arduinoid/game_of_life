@@ -3,10 +3,10 @@ import random
 
 # This function creates a row out of an array
 def row(width):
-    row = []
+    row_list = []
     for i in range(width):
-        row.append(random.randint(0,1))
-    return row
+        row_list.append(random.randint(0,1))
+    return row_list
 
 # print row(8)
 
@@ -103,22 +103,27 @@ def cellSurroundSum(grid, position):
 
     return cell_sum - cell_value
 
+def zeroRow(length):
+    row = [0] * length
+    return row
+
 def borderAdd(grid):
     '''
     This function will take a 2D array and output
     another 2D array with an extra border of zeros.
     So a 5x5 grid would become a 7x7 grid.
     '''
-    grid_plus_border = grid
-    zero_row = [0] * len(grid[0])
-    grid_plus_border.insert(0, zero_row)
-    grid_plus_border.append(zero_row)
+    new_grid = grid
+    grid_width = len(grid[0])
+    # Insert top and bottom row of zero's
+    new_grid.insert(0, zeroRow(grid_width))
+    new_grid.append(zeroRow(grid_width))
 
-    for line in grid_plus_border:
+    for line in new_grid:
         line.insert(0, 0)
         line.append(0)
 
-    return grid_plus_border
+    return new_grid
 
 def borderRemove(grid):
     '''
