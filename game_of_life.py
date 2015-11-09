@@ -113,6 +113,11 @@ def borderAdd(grid):
     zero_row = [0] * len(grid[0])
     grid_plus_border.insert(0, zero_row)
     grid_plus_border.append(zero_row)
+
+    for line in grid_plus_border:
+        line.insert(0, 0)
+        line.append(0)
+
     return grid_plus_border
 
 def borderRemove(grid):
@@ -168,8 +173,8 @@ if __name__ == '__main__':
 
     # grid render that defaults to raw grid
     gridRender(borderAdd(life_grid))
-    print ""
-    gridRender(borderRemove(life_grid))
+    # print ""
+    # gridRender(borderRemove(life_grid))
     # print cellSurroundSum(life_grid, position)
     # print cellCheck(life_grid, position)
     # grid render using character replacment arguments
