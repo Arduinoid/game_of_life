@@ -103,6 +103,12 @@ def cellSurroundSum(grid, position):
 
     return cell_sum - cell_value
 
+def borderAdd(grid):
+    '''
+    This function will take a 2D array and output
+    another 2D array with an extra border of zeros.
+    So a 5x5 grid would become a 7x7 grid.
+    '''
 
 # Passing the grid() function to this function will render the grid in characters
 def gridRender(grid, dead=None, alive=None):
